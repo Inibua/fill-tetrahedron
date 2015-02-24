@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<math.h>
+
+double fill_tetrahedron(int a){
+	return (pow(a, 3.0) / (sqrt(2.0) * 6));
+
+} // double
+
+int main() {
+	
+	int a;
+	double b;
+	
+	printf("Input edge of tetrahedron : \n");
+	scanf("%d", &a);
+
+	b = fill_tetrahedron(a) / 1000;
+
+	printf("You can fill regular tetrahedron with edge of %d cm with %.2f liters of water.\n", a, b);
+
+	return 0;
+} // main

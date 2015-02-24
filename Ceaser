@@ -1,0 +1,50 @@
+﻿#include<stdio.h>
+#include<stdlib.h>
+
+char uppercase[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+char lowercase[] = "abcdefghijklmnopqrstuvwxyz";
+
+char caesar_encrypt(char string[], int cipher) {
+	char encrypted_str[4];
+	int s;
+	int k = cipher
+	
+	for(s = 0; s < 3; s++){
+		if(string[s] >= 65 && string[s] <= 90 && k >= 0){
+			int l = string[s] - 'A' + k;
+			if(l > 26) {
+				l = l - 26;
+			
+			};// if l
+			
+			encrypted_str[s] = lowercase[l % 26];
+			printf("%c", encrypted_str[z]);
+		
+		} // if string
+			
+			else if(string[s] >= 97 && string[s] <= 122 && k >= 0) {
+			int l = string[s] - 'a' + k;
+			if(l > 26) {
+				l = l - 26;
+			
+			};// if l
+			
+			encrypted_str[s] = uppercase[l % 26];
+			printf("%c", encrypted_str[s]);
+		} // else if string
+	} // for
+
+	return 0;
+
+} // char
+
+int main() {
+	int i;
+	char m[4] = "def";
+	
+	printf("Input cipher number : ");
+	scanf("%d", &i);
+
+	caesar_encrypt(m, i); 
+	return 0;
+} // main

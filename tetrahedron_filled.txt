@@ -1,0 +1,43 @@
+﻿#include<stdio.h>
+#include<math.h>
+
+double fill_tetrahedron(int edge){
+	
+	return (pow(edge, 3.0) / (sqrt(2.0) * 6));
+
+	} // double
+
+int tetrahedron_filled(int tetrahedrons[], int water) {
+	
+	int z;
+	int result = 0;
+	
+	double curr_water_needed, water_left;
+	water_left = water;
+
+	for(z = 0; z < 3; z++) {
+		curr_water_needed = fill_tetrahedron(tetrahedrons[z]) / 1000;
+		if(water_left > 0) {
+			if (water_left > curr_water_needed) {
+				water_left = water_left - curr_water_needed;
+				result++;
+			} // if water left>curr water needed
+		}; //if water left>0
+	} // for
+
+	return result;
+} // int tetrahedron
+
+int main() {
+	
+	int a, result;
+	int m[3] = {100, 20, 30}; 
+
+	printf("Input the number of litres of water : ");
+	scanf("%d", &a);
+
+	result = tetrahedron_filled(m, a);
+	printf("%d\n", result);
+
+	return 0;
+} // main
